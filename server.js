@@ -3,8 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./app/routes');
 const database = require('./app/databases');
+
 // Port number
-const PORT = 3100;
+const PORT = (process.env.PORT || 3100);
 
 // Root url of API
 const apiEndPoint = '/api';
