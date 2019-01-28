@@ -75,14 +75,9 @@ EmployeeService.prototype.update = (id, data) => {
  * @param {Object} data 
  * @returns {Employee}
  */
-function getEmployeeObject(data, toGenerateId){
-    if(toGenerateId){
-        id = new mongoose.Types.ObjectId;
-    } else{
-        id = data._id;
-    }
+function getEmployeeObject(data){
     const employee = new Employee({
-      _id : id,
+      _id : new mongoose.Types.ObjectId,
       name : data.name,
       office : data.office,
       position : data.position,

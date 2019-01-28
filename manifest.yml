@@ -4,5 +4,3 @@ applications:
   memory: 512m
   timeout: 180 
   instances: 1
-  buildpack: nodejs_buildpack
-  
