@@ -1,14 +1,14 @@
-FROM node:10
+FROM  node:10-alpine
 
-LABEL maintainer="palash.kondekar@sap.com"
+RUN mkdir -p home/node/app/node_modules && chown -R node:node home/node/app
 
-WORKDIR usr/src/app
+WORKDIR /home/node/app
 
-COPY . ./usr/src/app
+COPY . ./
 
 RUN npm install
 
-COPY . .
+COPY --chown=node:node . .
 
 EXPOSE 8080
 
