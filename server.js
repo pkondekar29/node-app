@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // establish a connection with database
-database.db();
+//database.db();
 
 // setting routes of application
 app.use(apiEndPoint, routes);

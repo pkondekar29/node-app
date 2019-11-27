@@ -4,6 +4,7 @@
   "description": "Express REST application for CRUD operations",
   "main": "server.js",
   "scripts": {
+    "build": "./build.js",
     "start": "nodemon ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
