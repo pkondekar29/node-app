@@ -1,0 +1,6 @@
+---
+applications:
+- name: NodeJsApp
+  memory: 512m
+  timeout: 180 
+  instances: 1

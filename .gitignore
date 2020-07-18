@@ -1,0 +1,9 @@
+.Dockerfile.swp
+
+.gitignore.swp
+
+vim.exe.stackdump
+
+settings.json
+
+node_modules/*
