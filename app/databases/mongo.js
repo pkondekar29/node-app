@@ -1,4 +1,4 @@
-const config = require('../../config/db.config');
+const config = require('../config/db.config');
 const mongoose = require('mongoose');
 
 // database configs (remote) using Vcap_services in CF
@@ -12,10 +12,14 @@ const mongoose = require('mongoose');
 // database configs
 const dbHost = config.database.connectionconfig.host;
 const dbPort = config.database.connectionconfig.port;
-const dbName = config.database.connectionconfig.db;
+const dbName = config.database.connectionconfig.dbName;
+const userName = config.database.connectionconfig.userName;
+const password = config.database.connectionconfig.password;
 const dbURI = 'mongodb://' + dbHost + ':' + dbPort + '/' + dbName;
 
+// const dbURI = 'mongodb://' + userName + ':' + password + '@' + dbHost + ':' + dbPort + '/' + dbName;
 
+console.log('Trying to connect to: ' + dbURI)
 /**
  * establish a connection with database
  * 

@@ -30,7 +30,6 @@ EmployeeService.prototype.getById = (id) => {
         throw new ServerError("Employee Id note present in request", 400);
     }
     return Employee.findById(id, (err) => {
-        console.log("Employee doesn't exist");
         if(err) {
             throw err;
         }

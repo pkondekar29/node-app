@@ -6,9 +6,11 @@ module.exports = {
     // database configs
     database : {
         connectionconfig : {
-            host : "localhost",
+            host : "mongo",
             port : 27017,
-            db : "testdb"
+            dbName : "testdb",
+            userName: "mongoadmin",
+            password: "secret"
         }
     }
 }

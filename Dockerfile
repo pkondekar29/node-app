@@ -1,16 +1,11 @@
-FROM  node:10-alpine
+FROM node:alpine3.12
 
-RUN mkdir -p home/node/app/node_modules && chown -R node:node home/node/app
+COPY . /usr/src
 
-WORKDIR /home/node/app
-
-COPY . ./
+WORKDIR /usr/src
 
 RUN npm install
 
-COPY --chown=node:node . .
+EXPOSE 3100
 
-EXPOSE 8080
-
-CMD ["npm", "start"]
-
+ENTRYPOINT ["npm", "start"]
