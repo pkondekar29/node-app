@@ -6,10 +6,6 @@
   "scripts": {
     "start": "nodemon ./server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.wdf.sap.corp:csc-coe/node-app.git"
-  },
   "keywords": [
     "ExpressJS",
     "NodeJS",
