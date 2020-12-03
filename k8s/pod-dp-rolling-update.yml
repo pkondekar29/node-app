@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deploy
+  labels:
+    app: web
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: web
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxAvailable: 0   # Max avaliable which should be dropped during the update
+      maxSurge: 1       # Max more pods which can be set up while update
+  template: # Pod spec
+    metadata:
+      labels:
+        app: web
+    spec: 
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: node-pod
+        image: palash29/node-app:0.0.3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3100
