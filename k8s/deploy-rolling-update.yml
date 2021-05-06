@@ -13,7 +13,7 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxAvailable: 0   # Max avaliable which should be dropped during the update
+      # maxAvailable: 0   # Max avaliable which should be dropped during the update
       maxSurge: 1       # Max more pods which can be set up while update
   template: # Pod spec
     metadata:

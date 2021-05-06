@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: node-svc
+spec:
+    type: NodePort
+    ports:
+    - port: 80  #Cluster IP port
+      targetPort: 3100  # App Port  
+      nodePort: 32000   # Node port
+      protocol: TCP
+    selector: 
+      app: web  # Label selector which will be mapped on pods
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deploy
+  labels:
+    app: web
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: web
+  template: # Pod spec
+    metadata:
+      labels:
+        app: web
+    spec: 
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: node-pod
+        image: palash29/node-app:0.0.3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3100
+        env:
+          - name: MONGO_URL
+            value: mongodb://mongo:27017/testdb
