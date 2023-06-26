@@ -7,7 +7,7 @@ spec:
     ports:
     - port: 80  #Cluster IP port
       targetPort: 3100  # App Port  
-      nodePort: 32000   # Node port
+      nodePort: 3100   # Node port
       protocol: TCP
     selector: 
       app: web  # Label selector which will be mapped on pods
